@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it"> 
+<head> 
+    <meta charset="UTF-8">
+    <meta 
+        name="viewport" 
+        content="width=device-width, initial-scale=1.0">
+    <title>GlossUp - Beauty Store</title> 
+    <link 
+        rel="stylesheet" 
+        href="style.css"> 
+    <link 
+        rel="icon" 
+        href="LOGO/GLOSS_UP_LOGO.png"> 
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head> 
+<body> 
+    
+    <header class="header"> 
+        <img 
+            src="LOGO/GLOSS_UP_scrittabianca2.png" 
+            width="280" 
+            alt="Logo GlossUp"> 
+        <p>Il tuo mondo di make-up e bellezza</p> 
+    </header> 
+    
+    <nav class="topnav"> 
+        <div class="nav-container">
+            <button 
+                class="hamburger" 
+                id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div 
+                class="nav-links" 
+                id="nav-links">
+                <a href="#">Novità</a> 
+                <a href="#">Make-up</a> 
+                <a href="#">Tutorial</a> 
+            </div>
+            <div 
+                class="cart-icon" 
+                id="cart-btn">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <div 
+        id="cart-sidebar" 
+        class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Il tuo Carrello</h3>
+            <button id="close-cart">&times;</button>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Totale</span>
+                <span id="cart-total">€0.00</span>
+            </div>
+            <button class="checkout-btn">Procedi all'acquisto</button>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <img 
+                src="immagini_prodotti/sfondo vellutato1.jpg" 
+                alt="Beauty Background">
+            <div class="overlay">
+                <h1>Scopri la tua bellezza</h1>
+                <p>Prodotti esclusivi per il tuo stile</p>
+                <button class="btn-modern">SCOPRI ORA</button>
+            </div>
+        </section>
+
+        <section class="prodotti">
+            <h2>I Nostri Best Seller</h2>
+            <div class="griglia-prodotti">
+                
+                <article 
+                    class="card" 
+                    data-name="Fondotinta" 
+                    data-price="19.90">
+                    <div class="img-container">
+                        <img 
+                            src="immagini_prodotti/Fondotinta.PNG" 
+                            alt="Fondotinta">
+                    </div>
+                    <h3>Fondotinta Fluido</h3>
+                    <p class="price">€19.90</p>
+                    <button class="add-to-cart">AGGIUNGI</button>
+                </article>
+
+                <article 
+                    class="card" 
+                    data-name="Rossetto" 
+                    data-price="12.90">
+                    <div class="img-container">
+                        <img 
+                            src="immagini_prodotti/Gloss.PNG" 
+                            alt="Rossetto">
+                    </div>
+                    <h3>Rossetto Matte</h3>
+                    <p class="price">€12.90</p>
+                    <button class="add-to-cart">AGGIUNGI</button>
+                </article>
+
+                <article 
+                    class="card" 
+                    data-name="Palette" 
+                    data-price="29.90">
+                    <div class="img-container">
+                        <img 
+                            src="immagini_prodotti/Palette.PNG" 
+                            alt="Palette">
+                    </div>
+                    <h3>Palette Nude</h3>
+                    <p class="price">€29.90</p>
+                    <button class="add-to-cart">AGGIUNGI</button>
+                </article>
+
+                <article 
+                    class="card" 
+                    data-name="Mascara" 
+                    data-price="29.90">
+                    <div class="img-container">
+                        <img 
+                            src="immagini_prodotti/Mascara.PNG" 
+                            alt="Mascara">
+                    </div>
+                    <h3>Mascara Extra Volume</h3>
+                    <p class="price">€25.90</p>
+                    <button class="add-to-cart">AGGIUNGI</button>
+                </article>
+
+                <article 
+                    class="card" 
+                    data-name="Blush" 
+                    data-price="29.90">
+                    <div class="img-container">
+                        <img 
+                            src="immagini_prodotti/Blush.PNG" 
+                            alt="Blush">
+                    </div>
+                    <h3>Blush in polvere</h3>
+                    <p class="price">€20.90</p>
+                    <button class="add-to-cart">AGGIUNGI</button>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 GlossUp - Boutique Online</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
