@@ -213,3 +213,17 @@ body {
     .nav-links.mobile-active { display: flex; }
     .cart-sidebar { width: 100%; }
 }
+/* -- Cart footer -- */
+.cart-footer { margin-top: auto; border-top: 1px solid #eee; padding-top: 20px; }
+.total-row { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 15px; }
+.checkout-btn { width: 100%; background: #D80050; color: white; border: none; padding: 14px; font-weight: 700; cursor: pointer; border-radius: 4px; font-size: 1rem; }
+.checkout-btn:hover { background: #b8003f; }
+
+/* -- Hero overlay -- */
+.hero .overlay { position: relative; z-index: 1; }
+.hero .overlay h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.hero .overlay p { font-size: 1rem; margin-bottom: 20px; opacity: 0.9; }
+
+/* -- Card link fix -- */
+.card a { text-decoration: none; color: inherit; display: block; }
+.card h3 { margin: 12px 0 6px; font-size: 1rem; }

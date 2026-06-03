@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rossetto Matte - GlossUp Beauty Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
+  <link rel="icon" href="LOGO/GLOSS_UP_LOGO.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="header">
+    <img src="LOGO/GLOSS_UP_scrittabianca2.png" width="280" alt="Logo GlossUp">
+    <p>Il tuo mondo di make-up e bellezza</p>
+  </header>
+
+  <nav class="topnav">
+    <div class="nav-container">
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="prodotti.html">Make-up</a>
+        <a href="tutorial.html">Tutorial</a>
+      </div>
+      <div class="cart-icon" id="cart-btn">
+        <i class="fas fa-shopping-bag"></i>
+        <span id="cart-count">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Il tuo Carrello</h3>
+      <button id="close-cart">&times;</button>
+    </div>
+    <div id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="total-row"><span>Totale</span><span id="cart-total">€0.00</span></div>
+      <button class="checkout-btn">Procedi all'acquisto</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"><i class="fas fa-check-circle" style="margin-right:8px;color:#D80050;"></i> Prodotto aggiunto al carrello!</div>
+
+  <main>
+    <section class="product-detail">
+
+      <div class="product-gallery">
+        <div class="main-img-wrap">
+          <span class="badge-new">Novità</span>
+          <img id="main-img" src="immagini_prodotti/Gloss.PNG" alt="Rossetto Matte GlossUp">
+        </div>
+        <div class="thumbnails">
+          <div class="thumb active" onclick="switchImg(this,'immagini_prodotti/Gloss.PNG')"><img src="immagini_prodotti/Gloss.PNG" alt=""></div>
+          <div class="thumb" onclick="switchImg(this,'immagini_prodotti/Gloss.PNG')"><img src="immagini_prodotti/Gloss.PNG" alt=""></div>
+          <div class="thumb" onclick="switchImg(this,'immagini_prodotti/Gloss.PNG')"><img src="immagini_prodotti/Gloss.PNG" alt=""></div>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <p class="product-brand">GlossUp Collection</p>
+        <h1>Rossetto Matte</h1>
+        <p class="product-subtitle">Lunga durata · Alta pigmentazione · Finish vellutato</p>
+
+        <div class="rating-row">
+          <span class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          </span>
+          <span class="rating-count">4.5 · <a href="#">128 recensioni</a></span>
+        </div>
+
+        <div class="price-row">
+          <span class="price-main">€12.90</span>
+          <span class="price-old">€17.90</span>
+          <span class="price-badge">−28%</span>
+        </div>
+
+        <p class="shades-label">Tonalità: <span id="shade-name">Ruby Red</span></p>
+        <div class="shades">
+          <div class="shade active" style="background:#C0392B;" title="Ruby Red" onclick="selectShade(this,'Ruby Red')"></div>
+          <div class="shade" style="background:#8B1A1A;" title="Bordeaux" onclick="selectShade(this,'Bordeaux')"></div>
+          <div class="shade" style="background:#D4606A;" title="Rose Nude" onclick="selectShade(this,'Rose Nude')"></div>
+          <div class="shade" style="background:#C16E70;" title="Mauve" onclick="selectShade(this,'Mauve')"></div>
+          <div class="shade" style="background:#8E2C48;" title="Berry" onclick="selectShade(this,'Berry')"></div>
+          <div class="shade" style="background:#E8A598;" title="Baby Pink" onclick="selectShade(this,'Baby Pink')"></div>
+          <div class="shade" style="background:#3B1A1A;" title="Dark Plum" onclick="selectShade(this,'Dark Plum')"></div>
+          <div class="shade" style="background:#B5765B;" title="Terracotta" onclick="selectShade(this,'Terracotta')"></div>
+        </div>
+
+        <div class="qty-cart-row">
+          <div class="qty-selector">
+            <button class="qty-btn" id="qty-minus"><i class="fas fa-minus"></i></button>
+            <input id="qty-display" value="1" readonly>
+            <button class="qty-btn" id="qty-plus"><i class="fas fa-plus"></i></button>
+          </div>
+          <button class="btn-add-cart" id="btn-add-cart">
+            <i class="fas fa-shopping-bag"></i> AGGIUNGI AL CARRELLO
+          </button>
+          <button class="btn-wishlist" id="btn-wishlist" title="Lista desideri">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+
+        <div class="shipping-info">
+          <div class="shipping-row"><i class="fas fa-truck"></i><span><strong>Spedizione gratuita</strong> per ordini superiori a €30</span></div>
+          <div class="shipping-row"><i class="fas fa-box-open"></i><span>Consegna in <strong>2–4 giorni lavorativi</strong></span></div>
+          <div class="shipping-row"><i class="fas fa-undo-alt"></i><span>Reso gratuito entro <strong>30 giorni</strong></span></div>
+          <div class="shipping-row"><i class="fas fa-shield-alt"></i><span>Pagamento <strong>sicuro e protetto</strong></span></div>
+        </div>
+
+        <p class="product-description">Il nostro Rossetto Matte assicura un colore intenso e uniforme, con una formula arricchita di vitamina E che idrata e nutre le labbra durante tutta la giornata. Finish vellutato che non sbava e non si secca: bellezza senza compromessi.</p>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAccordion(this)">Ingredienti principali <i class="fas fa-chevron-down"></i></button>
+            <div class="accordion-body">
+              <ul><li>Vitamina E – antiossidante, protegge le labbra</li><li>Olio di jojoba – idratante naturale</li><li>Cera di candelilla – garantisce tenuta e comfort</li><li>Pigmenti di alta qualità – colore ricco e uniforme</li></ul>
+              <p style="margin-top:10px;color:#888;font-size:0.82rem;">Formula dermatologicamente testata. Senza parabeni, senza profumo aggiunto.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAccordion(this)">Come applicarlo <i class="fas fa-chevron-down"></i></button>
+            <div class="accordion-body"><ul><li>Inizia dal centro del labbro superiore, seguendo il contorno.</li><li>Riempi il labbro inferiore con un unico gesto.</li><li>Premi leggermente le labbra tra loro per uniformare il colore.</li><li>Per una maggiore durata, applica una matita labbra prima del rossetto.</li></ul></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAccordion(this)">Specifiche prodotto <i class="fas fa-chevron-down"></i></button>
+            <div class="accordion-body"><ul><li><strong>Formato:</strong> 3.5 g</li><li><strong>Finish:</strong> Matte vellutato</li><li><strong>Durata:</strong> Fino a 8 ore</li><li><strong>Tonalità disponibili:</strong> 8</li><li><strong>Cruelty free:</strong> Sì</li><li><strong>Vegano:</strong> Sì</li><li><strong>Codice prodotto:</strong> GU-RS-001</li></ul></div>
+          </div>
+        </div>
+
+        <a href="prodotti.html" class="back-link"><i class="fas fa-arrow-left"></i> Torna ai prodotti</a>
+      </div>
+    </section>
+
+    <section class="related-section prodotti">
+      <h2>Potrebbe piacerti anche</h2>
+      <div class="griglia-prodotti"><article class="card" data-name="Matite Labbra" data-price="7.90">
+          <a href="#"><div class="img-container"><img src="immagini_prodotti/Matite labbra.png" alt="Matite Labbra"></div>
+          <h3>Matite Labbra</h3><p class="price">€7.90</p></a>
+          <button class="add-to-cart">AGGIUNGI</button>
+        </article><article class="card" data-name="Fondotinta Fluido" data-price="19.90">
+          <a href="fondotinta.html"><div class="img-container"><img src="immagini_prodotti/Fondotinta.PNG" alt="Fondotinta Fluido"></div>
+          <h3>Fondotinta Fluido</h3><p class="price">€19.90</p></a>
+          <button class="add-to-cart">AGGIUNGI</button>
+        </article><article class="card" data-name="Palette Nude" data-price="29.90">
+          <a href="palette.html"><div class="img-container"><img src="immagini_prodotti/Palette.PNG" alt="Palette Nude"></div>
+          <h3>Palette Nude</h3><p class="price">€29.90</p></a>
+          <button class="add-to-cart">AGGIUNGI</button>
+        </article></div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>© 2026 GlossUp - Boutique Online</p></footer>
+
+  <script src="script.js"></script>
+  <script src="product.js"></script>
+  <script>
+    document.getElementById('btn-add-cart').addEventListener('click', () => {
+      const shadeEl = document.getElementById('shade-name');
+      const shadeName = shadeEl ? shadeEl.textContent : '';
+      const label = shadeName ? `Rossetto Matte – ${shadeName}` : 'Rossetto Matte';
+      for (let i = 0; i < qty; i++) cart.push({ name: label, price: 12.90 });
+      updateCartDisplay();
+      showToast();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial - GlossUp Beauty Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="LOGO/GLOSS_UP_LOGO.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Hero */
+    .tut-hero {
+      background: #1a0a10;
+      text-align: center;
+      padding: 70px 20px 50px;
+      color: white;
+    }
+    .tut-hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; margin-bottom: 12px; }
+    .tut-hero h1 em { color: #D80050; font-style: italic; }
+    .tut-hero p { font-size: 0.9rem; opacity: 0.55; letter-spacing: 0.05em; margin-bottom: 36px; }
+
+    /* Nav pills */
+    .pill-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .pill-nav a {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 20px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem; font-weight: 500;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .pill-nav a:hover { background: #D80050; border-color: #D80050; color: white; }
+
+    /* Tutorial section */
+    .tut-section { padding: 70px 0; border-bottom: 1px solid #f0f0f0; }
+    .tut-section:nth-child(even) { background: #fafafa; }
+
+    .tut-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 36px; }
+    .tut-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #fff0f5; display: flex; align-items: center;
+      justify-content: center; font-size: 1.2rem; color: #D80050; flex-shrink: 0;
+    }
+    .tut-tag { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #D80050; font-weight: 600; margin-bottom: 5px; }
+    .tut-title { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 400; color: #222; margin-bottom: 6px; }
+    .tut-subtitle { font-size: 0.85rem; color: #777; line-height: 1.75; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-bottom: 32px; }
+    .step {
+      background: white; border: 1px solid #efefef; border-radius: 12px;
+      padding: 28px 24px 24px; position: relative;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .step:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .step-num {
+      position: absolute; top: -13px; left: 22px;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: #D80050; color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 700;
+      box-shadow: 0 4px 10px rgba(216,0,80,0.3);
+    }
+    .step i { font-size: 1.3rem; color: #D80050; margin-bottom: 12px; display: block; }
+    .step h3 { font-size: 1rem; color: #222; margin-bottom: 8px; }
+    .step p { font-size: 0.83rem; color: #666; line-height: 1.72; }
+    .tip {
+      display: flex; align-items: flex-start; gap: 9px;
+      margin-top: 12px; padding: 10px 12px;
+      background: #fff0f5; border-radius: 8px;
+      font-size: 0.77rem; color: #8a0030;
+    }
+    .tip i { color: #D80050; flex-shrink: 0; margin-top: 2px; }
+
+    /* Tools */
+    .tools { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 28px; }
+    .tool {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 14px; background: #f7f7f7;
+      border: 1px solid #eee; border-radius: 50px;
+      font-size: 0.75rem; color: #666;
+    }
+    .tool i { color: #D80050; }
+
+    /* Pro tips */
+    .pro-tips {
+      background: #111; border-radius: 14px;
+      padding: 28px 30px; margin-bottom: 28px;
+    }
+    .pro-tips h3 { color: white; font-weight: 400; font-size: 1.15rem; margin-bottom: 18px; }
+    .pro-tips h3 i { color: #D80050; margin-right: 8px; }
+    .pro-tips ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .pro-tips li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .dot { width: 6px; height: 6px; background: #D80050; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+
+    /* CTA */
+    .cta {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 18px;
+      background: #fff0f5; border: 1px solid rgba(216,0,80,0.15);
+      border-radius: 14px; padding: 26px 30px;
+    }
+    .cta h4 { font-size: 1.15rem; font-weight: 500; color: #222; margin-bottom: 4px; }
+    .cta p { font-size: 0.8rem; color: #888; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 12px 26px; background: #D80050; color: white;
+      border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(216,0,80,0.3);
+      transition: background 0.25s, transform 0.25s;
+    }
+    .cta-btn:hover { background: #b8003f; transform: translateY(-1px); }
+
+    @media (max-width: 768px) {
+      .tut-header { flex-direction: column; }
+      .steps { grid-template-columns: 1fr; }
+      .cta { flex-direction: column; }
+      .pro-tips ul { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <img src="LOGO/GLOSS_UP_scrittabianca2.png" width="280" alt="Logo GlossUp">
+  <p>Il tuo mondo di make-up e bellezza</p>
+</header>
+
+<nav class="topnav">
+  <div class="nav-container">
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="prodotti.html">Make-up</a>
+      <a href="tutorial.html">Tutorial</a>
+    </div>
+    <div class="cart-icon" id="cart-btn">
+      <i class="fas fa-shopping-bag"></i>
+      <span id="cart-count">0</span>
+    </div>
+  </div>
+</nav>
+
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="cart-header">
+    <h3>Il tuo Carrello</h3>
+    <button id="close-cart">&times;</button>
+  </div>
+  <div id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="total-row"><span>Totale</span><span id="cart-total">€0.00</span></div>
+    <button class="checkout-btn">Procedi all'acquisto</button>
+  </div>
+</div>
+
+
+<main>
+
+   <section class="hero">
+            <img 
+                src="immagini_prodotti/Texture vellutata.avif" 
+                alt="Beauty Background">
+            <div class="overlay">
+                <h1>Scopri tutti i tutorial</h1>
+            </div>
+        </section>
+
+  <!-- 1. FONDOTINTA -->
+  <section class="tut-section" id="fondotinta">
+    <div class="container">
+      <div class="tut-header">
+        <div class="tut-icon"><i class="fas fa-tint"></i></div>
+        <div>
+          <p class="tut-tag">Tutorial · Viso</p>
+          <h2 class="tut-title">Come Applicare il Fondotinta</h2>
+          <p class="tut-subtitle">Una base perfetta è il segreto di ogni look. Segui questi passaggi per una copertura uniforme e naturale che dura tutto il giorno.</p>
+        </div>
+      </div>
+      <div class="tools">
+        <span class="tool"><i class="fas fa-brush"></i> Pennello piatto</span>
+        <span class="tool"><i class="fas fa-circle"></i> Beauty blender</span>
+        <span class="tool"><i class="fas fa-hand-sparkles"></i> Dita</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <i class="fas fa-hand-sparkles"></i>
+          <h3>Prepara la Pelle</h3>
+          <p>Idrata bene il viso con la tua crema preferita e lascia assorbire 2–3 minuti. La pelle idratata assorbe il fondotinta in modo uniforme e non lo impasta.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <i class="fas fa-tint"></i>
+          <h3>Dosa il Prodotto</h3>
+          <p>Metti 1–2 pump sul dorso della mano. È sempre meglio partire con poco e aggiungere: il fondotinta in eccesso è difficile da rimuovere senza compromettere la base.</p>
+          
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <i class="fas fa-circle"></i>
+          <h3>Applica dal Centro</h3>
+          <p>Inizia dal centro del viso (naso e zigomi) e sfuma verso l'esterno con movimenti circolari o tamponando con la spugnetta umida. Questo evita le "linee di demarcazione".</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <i class="fas fa-check-double"></i>
+          <h3>Copri le Zone Critiche</h3>
+          <p>Con un pennello piccolo o la punta della spugnetta, lavora con precisione su occhiaie, rossori e imperfezioni applicando uno strato in più solo dove serve.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <i class="fas fa-feather"></i>
+          <h3>Fissa con la Cipria</h3>
+          <p>Batti leggermente una cipria trasparente sul viso con un pennello grande o piumino per fissare il fondotinta e controllare la lucentezza. Evita di strisciare per non spostare la base.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <div>
+          <h4>Fondotinta Liquido GlossUp</h4>
+          <p>Copertura modulabile · Finish naturale · Lunga tenuta</p>
+        </div>
+        <a href="fondotinta.html" class="cta-btn"><i class="fas fa-shopping-bag"></i> Acquista Ora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PRIMER -->
+  <section class="tut-section" id="primer">
+    <div class="container">
+      <div class="tut-header">
+        <div class="tut-icon"><i class="fas fa-magic"></i></div>
+        <div>
+          <p class="tut-tag">Tutorial · Viso</p>
+          <h2 class="tut-title">Come Usare il Primer</h2>
+          <p class="tut-subtitle">Il primer è il passo che fa durare il make-up per ore in più. Leviga i pori, uniforma la pelle e crea la base perfetta per il fondotinta.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <i class="fas fa-shower"></i>
+          <h3>Pelle Pulita e Idratata</h3>
+          <p>Applica il primer sempre dopo la skincare (detergente, tonico, crema). Aspetta che la crema sia completamente assorbita prima di procedere, almeno 3–5 minuti.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <i class="fas fa-tint"></i>
+          <h3>Quantità Giusta</h3>
+          <p>Un pisello di prodotto è sufficiente per tutto il viso. Il primer non va usato a strati: una quantità eccessiva può far "scivolare" il fondotinta invece di fissarlo.</p>
+          
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <i class="fas fa-expand-alt"></i>
+          <h3>Stendi con le Dita</h3>
+          <p>Usa la punta delle dita per tamponare e sfumare il primer su tutto il viso con movimenti dal centro verso l'esterno. Insisti sui pori dilatati (naso e zigomi) con piccoli movimenti circolari.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <i class="fas fa-hourglass-half"></i>
+          <h3>Lascia Asciugare</h3>
+          <p>Aspetta 1–2 minuti prima di applicare il fondotinta. Il primer deve creare un "film" opaco sulla pelle: se è ancora lucido, aspetta ancora qualche secondo.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <div>
+          <h4>Primer Effetto Glow GlossUp</h4>
+          <p>Leviga i pori · Prolunga la tenuta · Tutti i tipi di pelle</p>
+        </div>
+        <a href="primer.html" class="cta-btn"><i class="fas fa-shopping-bag"></i> Acquista Ora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. BLUSH -->
+  <section class="tut-section" id="blush">
+    <div class="container">
+      <div class="tut-header">
+        <div class="tut-icon"><i class="fas fa-circle"></i></div>
+        <div>
+          <p class="tut-tag">Tutorial · Viso</p>
+          <h2 class="tut-title">Come Applicare il Blush</h2>
+          <p class="tut-subtitle">Il blush dona vita al viso e può modellare i lineamenti. La chiave è sapere dove applicarlo in base alla forma del viso.</p>
+        </div>
+      </div>
+      <div class="tools">
+        <span class="tool"><i class="fas fa-brush"></i> Pennello obliquo</span>
+        <span class="tool"><i class="fas fa-circle"></i> Pennello rotondo soffice</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <i class="fas fa-smile"></i>
+          <h3>Trova gli Zigomi</h3>
+          <p>Sorridi leggermente: la parte più "alta" delle guance che si forma è il punto di partenza. Da qui, sfuma il colore verso le tempie con un movimento leggermente obliquo verso l'alto.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <i class="fas fa-brush"></i>
+          <h3>Carica il Pennello con Misura</h3>
+          <p>Picchietta leggermente il pennello sul barattolo per togliere l'eccesso prima di applicarlo. Un blush troppo intenso è difficile da correggere: meglio aggiungere che togliere.</p>
+          
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <i class="fas fa-arrows-alt"></i>
+          <h3>Sfuma verso le Tempie</h3>
+          <p>Con movimenti decisi ma morbidi, porta il colore dagli zigomi verso le tempie. Per un effetto lifting visivo, la direzione deve essere sempre verso l'alto.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <i class="fas fa-adjust"></i>
+          <h3>Ammorbidisci i Bordi</h3>
+          <p>Usa un pennello pulito o la spugnetta per sfumare eventuali bordi netti. Il blush non deve avere una linea di demarcazione: deve sembrare un flush naturale della pelle.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <div>
+          <h4>Blush GlossUp</h4>
+          <p>Colori vibranti · Facile da sfumare · Finish naturale</p>
+        </div>
+        <a href="blush.html" class="cta-btn"><i class="fas fa-shopping-bag"></i> Acquista Ora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ILLUMINANTE -->
+  <section class="tut-section" id="illuminante">
+    <div class="container">
+      <div class="tut-header">
+        <div class="tut-icon"><i class="fas fa-sun"></i></div>
+        <div>
+          <p class="tut-tag">Tutorial · Viso</p>
+          <h2 class="tut-title">Come Applicare l'Illuminante</h2>
+          <p class="tut-subtitle">L'illuminante è il segreto del "glass skin". Scopri i punti strategici del viso per un effetto luce naturale e tridimensionale.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Identifica i Punti Luce</h3>
+          <p>I punti chiave sono: apice degli zigomi, centro della fronte, cresta del naso, arco di Cupido e angolo interno degli occhi. Sono i punti dove la luce tocca naturalmente il viso.</p>
+          
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <i class="fas fa-blender"></i>
+          <h3>Mix con il Fondotinta</h3>
+          <p>Per un glow diffuso, mescola 1–2 gocce di illuminante liquido direttamente con il fondotinta prima di applicarlo. Il risultato è una base che brilla dall'interno, effetto "glass skin".</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <i class="fas fa-location-arrow"></i>
+          <h3>Applica sugli Zigomi</h3>
+          <p>Con la punta del dito, tamponando delicatamente, applica una piccola quantità sull'apice degli zigomi. Questo è il punto che esalta i lineamenti e dona profondità al viso.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <i class="fas fa-feather"></i>
+          <h3>Sfuma per un Effetto Naturale</h3>
+          <p>Tamponando con i polpastrelli o la spugnetta, sfuma i bordi dell'illuminante. Non deve avere confini netti: deve sembrare che la pelle brilli dall'interno.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <div>
+          <h4>Illuminante Liquido GlossUp</h4>
+          <p>Effetto glass skin · Facile da sfumare · Look giorno e sera</p>
+        </div>
+        <a href="illuminante.html" class="cta-btn"><i class="fas fa-shopping-bag"></i> Acquista Ora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PALETTE OCCHI -->
+  <section class="tut-section" id="palette">
+    <div class="container">
+      <div class="tut-header">
+        <div class="tut-icon"><i class="fas fa-palette"></i></div>
+        <div>
+          <p class="tut-tag">Tutorial · Occhi</p>
+          <h2 class="tut-title">Come Usare la Palette Occhi</h2>
+          <p class="tut-subtitle">Tre o quattro ombretti sono tutto ciò che serve per creare uno smoky eye o un look naturale luminoso. Scopri come abbinare e sfumare i colori.</p>
+        </div>
+      </div>
+      <div class="tools">
+        <span class="tool"><i class="fas fa-brush"></i> Pennello piatto</span>
+        <span class="tool"><i class="fas fa-brush"></i> Pennello sfumatore</span>
+        <span class="tool"><i class="fas fa-circle"></i> Dito (per i shimmer)</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <i class="fas fa-layer-group"></i>
+          <h3>Base Occhi</h3>
+          <p>Applica un primer occhi o un fondotinta opaco sulla palpebra mobile. Questo step fa durare l'ombretto tutto il giorno e intensifica i colori, soprattutto i toni scuri.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <i class="fas fa-paint-brush"></i>
+          <h3>Colore di Transizione</h3>
+          <p>Con il pennello sfumatore, stendi un tono neutro (nocciola o marrone chiaro) nella piega dell'occhio con movimenti a tergicristallo. È il colore di "raccordo" che rende tutto armonioso.</p>
+          
+        <div class="step">
+          <div class="step-num">3</div>
+          <i class="fas fa-fill-drip"></i>
+          <h3>Colore sulla Palpebra</h3>
+          <p>Con il pennello piatto, applica il colore principale sulla palpebra mobile picchiettando per depositare il pigmento. Poi sfuma i bordi con il pennello sfumatore pulito.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <i class="fas fa-star"></i>
+          <h3>Shimmer al Centro</h3>
+          <p>Usa la punta del dito (non il pennello) per tamponare il colore shimmer o glitter al centro della palpebra. Le dita trasferiscono il pigmento meglio di qualsiasi pennello.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <i class="fas fa-eye"></i>
+          <h3>Angolo Esterno e Ciglia</h3>
+          <p>Intensifica l'angolo esterno con il tono più scuro della palette, sfumando verso l'esterno e verso l'alto. Applica lo stesso colore lungo le ciglia inferiori con il pennello sottile per profondità.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <div>
+          <h4>Palette Nude GlossUp</h4>
+          <p>12 tonalità · Finish matte e shimmer · Altamente pigmentata</p>
+        </div>
+        <a href="palette.html" class="cta-btn"><i class="fas fa-shopping-bag"></i> Acquista Ora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. MASCARA -->
+  <section class="tut-section" id="mascara">
+    <div class="container">
+      <div class="tut-header">
+        <div class="tut-icon"><i class="fas fa-eye"></i></div>
+        <div>
+          <p class="tut-tag">Tutorial · Occhi</p>
+          <h2 class="tut-title">Come Applicare il Mascara</h2>
+          <p class="tut-subtitle">Il mascara giusto applicato nel modo giusto può raddoppiare il volume delle ciglia e aprire lo sguardo in pochi secondi.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <i class="fas fa-compress-arrows-alt"></i>
+          <h3>Arriccia le Ciglia</h3>
+          <p>Prima del mascara, usa un arricciaciglia per aprire lo sguardo. Tieni premuto alla base delle ciglia per 10 secondi, poi sposta verso le punte. Le ciglia arricciate prima di applicare il mascara durano molto più a lungo.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <i class="fas fa-grip-lines"></i>
+          <h3>Prima Passata alla Base</h3>
+          <p>Posiziona lo scovolino orizzontalmente alla base delle ciglia e "pompalo" leggermente avanti e indietro prima di scorrere verso le punte. Questo deposita più prodotto alla radice per un effetto volumizzante.</p>
+          
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <i class="fas fa-long-arrow-alt-up"></i>
+          <h3>Sfuma verso le Punte</h3>
+          <p>Con un movimento a zig-zag dalla base alle punte, stendi il mascara uniformemente. Il movimento a zig-zag separa le ciglia e evita i grumi, donando un effetto "fan" aperto.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <i class="fas fa-redo"></i>
+          <h3>Secondo Strato</h3>
+          <p>Aspetta 30 secondi che il primo strato si asciughi parzialmente, poi applica un secondo strato per intensificare il volume. Non aspettare troppo: le ciglia devono essere ancora leggermente umide per amalgamarsi.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <i class="fas fa-eye-slash"></i>
+          <h3>Ciglia Inferiori</h3>
+          <p>Usa la punta dello scovolino verticalmente per le ciglia inferiori, con movimenti delicati. Un filo di mascara sulle ciglia inferiori apre lo sguardo, ma troppo lo appesantisce.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <div>
+          <h4>Mascara Extra Volume GlossUp</h4>
+          <p>Volume estremo · Formula waterproof · Scovolino curvy</p>
+        </div>
+        <a href="mascara.html" class="cta-btn"><i class="fas fa-shopping-bag"></i> Acquista Ora</a>
+      </div>
+    
+  </section>
+
+  <!-- 7. MATITE LABBRA -->
+  <section class="tut-section" id="matite">
+    <div class="container">
+      <div class="tut-header">
+        <div class="tut-icon"><i class="fas fa-pencil-alt"></i></div>
+        <div>
+          <p class="tut-tag">Tutorial · Labbra</p>
+          <h2 class="tut-title">Come Usare le Matite Labbra</h2>
+          <p class="tut-subtitle">La matita labbra non è solo un contorno: è uno strumento versatile che definisce, volumizza e prolunga la tenuta del colore.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <i class="fas fa-pencil-alt"></i>
+          <h3>Affila la Matita</h3>
+          <p>Una punta ben appuntita permette un tratto preciso. Affila prima dell'uso, poi lascia raffreddare qualche secondo: il calore del temperino ammorbidisce la mina e rende difficile il controllo.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <i class="fas fa-draw-polygon"></i>
+          <h3>Definisci l'Arco di Cupido</h3>
+          <p>Inizia dai due picchi del labbro superiore con due tratti a "V", poi delinea verso gli angoli. Per il labbro inferiore, parti dal centro verso gli angoli.</p>
+         
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <i class="fas fa-fill-drip"></i>
+          <h3>Riempi le Labbra</h3>
+          <p>Usa la matita per riempire tutta la superficie delle labbra con trattini brevi e incrociati. Questa base fa durare il rossetto molto più a lungo.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <i class="fas fa-brush"></i>
+          <h3>Sfuma il Contorno</h3>
+          <p>Con la punta del dito o un pennellino, sfuma leggermente il contorno verso l'interno per eliminare la linea netta. Poi applica rossetto o gloss al centro.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <div>
+          <h4>Matite Labbra GlossUp</h4>
+          <p>Vari toni · Formula morbida · Lunga tenuta</p>
+        </div>
+        <a href="matite-labbra.html" class="cta-btn"><i class="fas fa-shopping-bag"></i> Acquista Ora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ROSSETTO -->
+  <section class="tut-section" id="rossetto">
+    <div class="container">
+      <div class="tut-header">
+        <div class="tut-icon"><i class="fas fa-kiss-wink-heart"></i></div>
+        <div>
+          <p class="tut-tag">Tutorial · Labbra</p>
+          <h2 class="tut-title">Come Applicare il Rossetto Matte</h2>
+          <p class="tut-subtitle">Un rossetto matte perfetto è preciso, intenso e dura tutto il giorno. Segui questi passaggi per una stesura impeccabile senza sbavature.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <i class="fas fa-hand-holding-water"></i>
+          <h3>Prepara le Labbra</h3>
+          <p>Esfoliante per labbra o uno spazzolino morbido rimuove le cellule morte. Poi applica un velo di burro di cacao e tamponalo via dopo un minuto. Le labbra idratate assorbono il colore in modo uniforme.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <i class="fas fa-pencil-alt"></i>
+          <h3>Contorna con la Matita</h3>
+          <p>Usa una matita labbra dello stesso tono o leggermente più scura per definire il contorno. Questo passaggio previene le sbavature e fa durare il colore molto più a lungo.</p>
+          
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <i class="fas fa-kiss"></i>
+          <h3>Applica il Rossetto</h3>
+          <p>Applica direttamente dal stick partendo dal centro verso gli angoli. Poi usa un pennello labbra per precisione sugli angoli e per distribuire il prodotto uniformemente su tutta la superficie.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <i class="fas fa-compress-arrows-alt"></i>
+          <h3>Premi con un Fazzoletto</h3>
+          <p>Posiziona un fazzoletto sottile sulle labbra e picchietta leggermente. Questo rimuove l'eccesso di prodotto e fissa il pigmento, rendendolo molto più duraturo e meno soggetto a sbavature.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <i class="fas fa-redo"></i>
+          <h3>Secondo Strato (opzionale)</h3>
+          <p>Per un colore più intenso e una tenuta ultra-lunga, applica un secondo strato sottile dopo aver tamponato il primo. Ripassate con il pennello gli angoli per la massima precisione.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <div>
+          <h4>Rossetto Matte GlossUp</h4>
+          <p>Colori intensi · Lunga tenuta · Formula idratante</p>
+        </div>
+        <a href="rossetto.html" class="cta-btn"><i class="fas fa-shopping-bag"></i> Acquista Ora</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2026 GlossUp - Boutique Online</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

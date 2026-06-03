@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blush in Polvere - GlossUp Beauty Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
+  <link rel="icon" href="LOGO/GLOSS_UP_LOGO.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="header">
+    <img src="LOGO/GLOSS_UP_scrittabianca2.png" width="280" alt="Logo GlossUp">
+    <p>Il tuo mondo di make-up e bellezza</p>
+  </header>
+
+  <nav class="topnav">
+    <div class="nav-container">
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="prodotti.html">Make-up</a>
+        <a href="tutorial.html">Tutorial</a>
+      </div>
+      <div class="cart-icon" id="cart-btn">
+        <i class="fas fa-shopping-bag"></i>
+        <span id="cart-count">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Il tuo Carrello</h3>
+      <button id="close-cart">&times;</button>
+    </div>
+    <div id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="total-row"><span>Totale</span><span id="cart-total">€0.00</span></div>
+      <button class="checkout-btn">Procedi all'acquisto</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"><i class="fas fa-check-circle" style="margin-right:8px;color:#D80050;"></i> Prodotto aggiunto al carrello!</div>
+
+  <main>
+    <section class="product-detail">
+
+      <div class="product-gallery">
+        <div class="main-img-wrap">
+          <span class="badge-new">Novità</span>
+          <img id="main-img" src="immagini_prodotti/Blush.PNG" alt="Blush in Polvere GlossUp">
+        </div>
+        <div class="thumbnails">
+          <div class="thumb active" onclick="switchImg(this,'immagini_prodotti/Blush.PNG')"><img src="immagini_prodotti/Blush.PNG" alt=""></div>
+          <div class="thumb" onclick="switchImg(this,'immagini_prodotti/Blush.PNG')"><img src="immagini_prodotti/Blush.PNG" alt=""></div>
+          <div class="thumb" onclick="switchImg(this,'immagini_prodotti/Blush.PNG')"><img src="immagini_prodotti/Blush.PNG" alt=""></div>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <p class="product-brand">GlossUp Collection</p>
+        <h1>Blush in Polvere</h1>
+        <p class="product-subtitle">Colorito naturale · Finish luminoso · Alta pigmentazione</p>
+
+        <div class="rating-row">
+          <span class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          </span>
+          <span class="rating-count">4.5 · <a href="#">98 recensioni</a></span>
+        </div>
+
+        <div class="price-row">
+          <span class="price-main">€19.90</span>
+          <span class="price-old">€26.90</span>
+          <span class="price-badge">−26%</span>
+        </div>
+
+        <p class="shades-label">Tonalità: <span id="shade-name">Peach Glow</span></p>
+        <div class="shades">
+          <div class="shade active" style="background:#f4a89a;" title="Peach Glow" onclick="selectShade(this,'Peach Glow')"></div>
+          <div class="shade" style="background:#e8748a;" title="Rose Petal" onclick="selectShade(this,'Rose Petal')"></div>
+          <div class="shade" style="background:#c9566b;" title="Coral Blush" onclick="selectShade(this,'Coral Blush')"></div>
+          <div class="shade" style="background:#d4a3b5;" title="Dusty Pink" onclick="selectShade(this,'Dusty Pink')"></div>
+          <div class="shade" style="background:#c47a6a;" title="Terra Rosa" onclick="selectShade(this,'Terra Rosa')"></div>
+          <div class="shade" style="background:#e8b4a0;" title="Nude Pêche" onclick="selectShade(this,'Nude Pêche')"></div>
+        </div>
+
+        <div class="qty-cart-row">
+          <div class="qty-selector">
+            <button class="qty-btn" id="qty-minus"><i class="fas fa-minus"></i></button>
+            <input id="qty-display" value="1" readonly>
+            <button class="qty-btn" id="qty-plus"><i class="fas fa-plus"></i></button>
+          </div>
+          <button class="btn-add-cart" id="btn-add-cart">
+            <i class="fas fa-shopping-bag"></i> AGGIUNGI AL CARRELLO
+          </button>
+          <button class="btn-wishlist" id="btn-wishlist" title="Lista desideri">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+
+        <div class="shipping-info">
+          <div class="shipping-row"><i class="fas fa-truck"></i><span><strong>Spedizione gratuita</strong> per ordini superiori a €30</span></div>
+          <div class="shipping-row"><i class="fas fa-box-open"></i><span>Consegna in <strong>2–4 giorni lavorativi</strong></span></div>
+          <div class="shipping-row"><i class="fas fa-undo-alt"></i><span>Reso gratuito entro <strong>30 giorni</strong></span></div>
+          <div class="shipping-row"><i class="fas fa-shield-alt"></i><span>Pagamento <strong>sicuro e protetto</strong></span></div>
+        </div>
+
+        <p class="product-description">Il Blush in Polvere GlossUp regala alle guance un colorito fresco e naturale con una formula ultra-setosa che si sfuma facilmente. Altamente pigmentato ma buildabile: perfetto sia per un look luminoso quotidiano che per un make-up serale più strutturato.</p>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAccordion(this)">Ingredienti principali <i class="fas fa-chevron-down"></i></button>
+            <div class="accordion-body">
+              <ul>
+                <li>Mica – riflessi luminosi e setosi</li>
+                <li>Talco micronizzato – texture morbida e facile da sfumare</li>
+                <li>Vitamina E – antiossidante, protegge la pelle</li>
+                <li>Estratto di rosa canina – tonifica e illumina il colorito</li>
+              </ul>
+              <p style="margin-top:10px;color:#888;font-size:0.82rem;">Formula dermatologicamente testata. Senza parabeni, senza profumo aggiunto.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAccordion(this)">Come applicarlo <i class="fas fa-chevron-down"></i></button>
+            <div class="accordion-body">
+              <ul>
+                <li>Sorridi leggermente per individuare le mele delle guance.</li>
+                <li>Applica il blush con un pennello tondo dalla mela verso le tempie.</li>
+                <li>Sfuma i bordi con movimenti circolari per un effetto naturale.</li>
+                <li>Sovrapponi un secondo strato per un look più intenso e definito.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn" onclick="toggleAccordion(this)">Specifiche prodotto <i class="fas fa-chevron-down"></i></button>
+            <div class="accordion-body">
+              <ul>
+                <li><strong>Formato:</strong> 8 g</li>
+                <li><strong>Finish:</strong> Luminoso naturale</li>
+                <li><strong>Durata:</strong> Fino a 10 ore</li>
+                <li><strong>Tonalità disponibili:</strong> 6</li>
+                <li><strong>Cruelty free:</strong> Sì</li>
+                <li><strong>Vegano:</strong> Sì</li>
+                <li><strong>Codice prodotto:</strong> GU-BL-005</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <a href="prodotti.html" class="back-link"><i class="fas fa-arrow-left"></i> Torna ai prodotti</a>
+      </div>
+    </section>
+
+    <section class="related-section prodotti">
+      <h2>Potrebbe piacerti anche</h2>
+      <div class="griglia-prodotti">
+        <article class="card" data-name="Fondotinta Fluido" data-price="19.90">
+          <a href="fondotinta.html"><div class="img-container"><img src="immagini_prodotti/Fondotinta.PNG" alt="Fondotinta Fluido"></div>
+          <h3>Fondotinta Fluido</h3><p class="price">€19.90</p></a>
+          <button class="add-to-cart">AGGIUNGI</button>
+        </article>
+        <article class="card" data-name="Illuminante Liquido" data-price="24.90">
+          <a href="illuminante.html"><div class="img-container"><img src="immagini_prodotti/Illuminante.jpeg" alt="Illuminante Liquido"></div>
+          <h3>Illuminante Liquido</h3><p class="price">€24.90</p></a>
+          <button class="add-to-cart">AGGIUNGI</button>
+        </article>
+        <article class="card" data-name="Primer Effetto Glow" data-price="14.90">
+          <a href="primer.html"><div class="img-container"><img src="immagini_prodotti/Primer.jpeg" alt="Primer Effetto Glow"></div>
+          <h3>Primer Effetto Glow</h3><p class="price">€14.90</p></a>
+          <button class="add-to-cart">AGGIUNGI</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><p>© 2026 GlossUp - Boutique Online</p></footer>
+
+  <script src="script.js"></script>
+  <script src="product.js"></script>
+  <script>
+    document.getElementById('btn-add-cart').addEventListener('click', () => {
+      const shadeEl = document.getElementById('shade-name');
+      const shadeName = shadeEl ? shadeEl.textContent : '';
+      const label = shadeName ? `Blush in Polvere – ${shadeName}` : 'Blush in Polvere';
+      for (let i = 0; i < qty; i++) cart.push({ name: label, price: 19.90 });
+      updateCartDisplay();
+      showToast();
+    });
+  </script>
+</body>
+</html>
